@@ -11,15 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cites', function (Blueprint $table) {
+        Schema::create('missatges', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_solicitant_id')
+            $table->foreignId('user_remitent_id')
                 ->constrained('users')
                 ->onDelete('cascade');
-            $table->foreignId('user_solicitat_id')
+            $table->foreignId('user_destinatari_id')
                 ->constrained('users')
                 ->onDelete('cascade');
-            $table->string('estat');
+            $table->string('assumpte');
+            $table->text('cos');
+            $table->date('data_enviament');
+            $table->time('hora_enviament');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cita');
+        Schema::dropIfExists('missatges');
     }
 };

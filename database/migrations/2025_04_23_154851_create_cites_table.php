@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('preferencies', function (Blueprint $table) {
+        Schema::create('cites', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
+            $table->foreignId('user_solicitant_id')
                 ->constrained('users')
                 ->onDelete('cascade');
-            $table->string('sexe');
-            $table->number('edat');
-            $table->string('color_cabell');
-            $table->string('color_ulls');
+            $table->foreignId('user_solicitat_id')
+                ->constrained('users')
+                ->onDelete('cascade');
+            $table->string('estat');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('preferencia');
+        Schema::dropIfExists('cites');
     }
 };

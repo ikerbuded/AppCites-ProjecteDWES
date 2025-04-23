@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('sexe');
             $table->date('data_naixement');
+            $table->string('color_cabell');
+            $table->string('color_ulls');
             $table->string('imatge')->nullable();
             $table->rememberToken();
             $table->timestamps();

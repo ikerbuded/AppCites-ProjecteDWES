@@ -26,6 +26,31 @@ class User extends Authenticatable
         'imatge'
     ];
 
+    public function preferencia()
+    {
+        return $this->hasOne(Preferencia::class);
+    }
+
+    public function missatgesEnviats()
+    {
+        return $this->hasMany(Missatge::class, 'user_remitent_id');
+    }
+
+    public function missatgesRebuts()
+    {
+        return $this->hasMany(Missatge::class, 'user_destinatari_id');
+    }
+
+    public function citesSolicitades()
+    {
+        return $this->hasMany(Cita::class, 'user_solicitant_id');
+    }
+
+    public function citesRebudes()
+    {
+        return $this->hasMany(Cita::class, 'user_solicitat_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

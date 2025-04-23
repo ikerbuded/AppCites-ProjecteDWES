@@ -11,18 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('missatges', function (Blueprint $table) {
+        Schema::create('preferencies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_remitent_id')
+            $table->foreignId('user_id')
                 ->constrained('users')
                 ->onDelete('cascade');
-            $table->foreignId('user_destinatari_id')
-                ->constrained('users')
-                ->onDelete('cascade');
-            $table->string('assumpte');
-            $table->text('cos');
-            $table->date('data_enviament');
-            $table->time('hora_enviament');
+            $table->string('sexe');
+            $table->integer('edat');
+            $table->string('color_cabell');
+            $table->string('color_ulls');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('missatge');
+        Schema::dropIfExists('preferencies');
     }
 };
