@@ -25,7 +25,7 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            <button type="submit" class="btn btn-primary w-100">Inicia sessió</button>
+            <button type="submit" class="btn btn-primary w-100">Inicia Sessió</button>
         </form>
         <p class="mt-3"><a href="{{ route('register') }}" class="text-light">Encara no tens compte? Registra't</a></p>
     </div>
