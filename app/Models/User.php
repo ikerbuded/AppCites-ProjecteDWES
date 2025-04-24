@@ -51,6 +51,16 @@ class User extends Authenticatable
         return $this->hasMany(Cita::class, 'user_solicitat_id');
     }
 
+    public function fotos()
+    {
+        return $this->hasMany(Foto::class);
+    }
+
+    public function fotoPrincipal()
+    {
+        return $this->hasOne(Foto::class)->where('principal', true);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

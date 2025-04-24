@@ -73,7 +73,7 @@
             </div>
         </form>
 
-        <p class="mt-3"><a href="{{ route('login') }}" class="text-light">Ja tens compte? Inicia sessió</a></p>
+        <p class="mt-3"><a href="{{ route('welcome') }}" class="text-light">Ja tens compte? Inicia sessió</a></p>
     </div>
 </body>
 </html>

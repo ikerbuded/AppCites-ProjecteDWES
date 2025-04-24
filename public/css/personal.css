@@ -37,3 +37,28 @@ header .navbar-nav .nav-link:hover {
     text-align: center;
     backdrop-filter: blur(0px);
 }
+
+.ranura-foto {
+    background-color: #f8f9fa;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.ranura-foto:hover {
+    background-color: #e9ecef;
+    transition: 0.2s;
+}
+
+.ajusta-cobertura {
+    object-fit: cover;
+}
+
+.etiqueta-pujar span {
+    font-size: 4rem;
+    color: #6c757d;
+    transition: 0.2s;
+}
+
+.etiqueta-pujar:hover span {
+    color: #495057;
+}
