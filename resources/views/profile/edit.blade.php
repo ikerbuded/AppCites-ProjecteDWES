@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
-@section('content')
+@section('contingut')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h2 class="mb-5">{{ __('Profile') }}</h2>
+            <h2 class="mb-4 my-3">{{ __('Profile') }}</h2>
             <div class="mb-4">
                 @include('profile.partials.update-profile-information-form')
             </div>

@@ -8,8 +8,7 @@ class Foto extends Model
 {
     protected $fillable = [
         'user_id',
-        'ruta',
-        'principal'
+        'ruta'
     ];
 
     public function user()

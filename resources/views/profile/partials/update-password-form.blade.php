@@ -1,9 +1,9 @@
 <div class="card">
-    <div class="card-header">{{ __('Update Password') }}</div>
+    <div class="card-header">{{ __('Actualitzar contrasenya') }}</div>
 
     <div class="card-body">
         <div class="mb-3">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
+            {{ __('Assegura\'t que el teu compte utilitza una contrasenya llarga i aleatòria per mantenir la seguretat.') }}
         </div>
         <form method="POST" action="{{ route('password.update') }}">
             @csrf
@@ -11,7 +11,7 @@
 
             <div class="row mb-3">
                 <label for="password" class="col-md-4 col-form-label text-md-end">
-                    {{ __('Current Password') }}
+                    {{ __('Contrasenya actual') }}
                 </label>
 
                 <div class="col-md-6">
@@ -27,7 +27,7 @@
 
             <div class="row mb-3">
                 <label for="password" class="col-md-4 col-form-label text-md-end">
-                    {{ __('New Password') }}
+                    {{ __('Nova contrasenya') }}
                 </label>
 
                 <div class="col-md-6">
@@ -43,7 +43,7 @@
 
             <div class="row mb-3">
                 <label for="password_confirmation" class="col-md-4 col-form-label text-md-end">
-                    {{ __('Confirm Password') }}
+                    {{ __('Confirmar contrasenya') }}
                 </label>
 
                 <div class="col-md-6">
@@ -60,10 +60,10 @@
             <div class="row mb-0">
                 <div class="col-md-6 offset-md-4">
                     <button type="submit" class="btn btn-primary">
-                        {{ __('Save') }}
+                        {{ __('Desar') }}
                     </button>
                     @if (session('status') === 'password-updated')
-                        <span class="m-1 fade-out">{{ __('Saved.') }}</span>
+                        <span class="m-1 fade-out">{{ __('Desat.') }}</span>
                     @endif
                 </div>
             </div>
