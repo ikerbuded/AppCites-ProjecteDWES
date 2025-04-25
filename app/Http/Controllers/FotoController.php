@@ -47,7 +47,7 @@ class FotoController extends Controller
         $foto = Foto::findOrFail($id);
         $user = User::findOrFail($foto->user_id);
 
-        $user->image = $foto->ruta;
+        $user->imatge = $foto->ruta;
         $user->save();
 
         return redirect()->route('user.modificarfotos');

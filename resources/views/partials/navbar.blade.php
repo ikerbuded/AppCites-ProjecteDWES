@@ -15,13 +15,13 @@
                     <a class="nav-link" href="{{ route('dashboard') }}">Inici</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('buscarparella') }}">Busca</a>
+                    <a class="nav-link" href="{{ route('buscarparella.index') }}">Busca</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('missatges') }}">Missatges</a>
+                    <a class="nav-link" href="{{ route('missatges.index') }}">Missatges</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('cites') }}">Cites</a>
+                    <a class="nav-link" href="{{ route('cites.index') }}">Cites</a>
                 </li>
             </ul>
 

@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\CitaController;
 use App\Http\Controllers\FotoController;
+use App\Http\Controllers\MissatgeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UsuariController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,16 +21,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/perfil', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Mostrar vista de gestió de fotos
-    Route::get('/usuari/fotos', [FotoController::class, 'show'])->name('user.modificarfotos');
+    Route::get('/fotos', [FotoController::class, 'show'])->name('user.modificarfotos');
 
     // Pujar una nova foto (una en una)
-    Route::post('/usuari/foto', [FotoController::class, 'store'])->name('user.guardarfoto');
+    Route::post('/foto', [FotoController::class, 'store'])->name('user.guardarfoto');
 
     // Eliminar una foto
-    Route::delete('/usuari/foto/{id}', [FotoController::class, 'destroy'])->name('user.eliminarfoto');
+    Route::delete('/foto/{id}', [FotoController::class, 'destroy'])->name('user.eliminarfoto');
 
     // Assignar una foto com a principal (avatar)
-    Route::post('/usuari/foto/{id}/principal', [FotoController::class, 'assignarAvatar'])->name('user.assignaravatar');
+    Route::post('/foto/{id}/principal', [FotoController::class, 'assignarAvatar'])->name('user.assignaravatar');
+
+
+    Route::post('/missatges', [MissatgeController::class, 'index'])->name('missatges.index');
+    Route::post('/cites', [CitaController::class, 'index'])->name('cites.index');
+    Route::post('/buscarparella', [UsuariController::class, 'index'])->name('buscarparella.index');
 });
 
 require __DIR__ . '/auth.php';

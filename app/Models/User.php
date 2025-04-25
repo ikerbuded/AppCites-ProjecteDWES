@@ -23,6 +23,8 @@ class User extends Authenticatable
         'password',
         'sexe',
         'data_naixement',
+        'color_cabell',
+        'color_ulls',
         'imatge'
     ];
 

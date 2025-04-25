@@ -20,7 +20,7 @@
                         <form action="{{ route('user.assignaravatar', $fotos[$i]['id']) }}" method="POST" class="position-absolute bottom-0 start-0 m-2">
                             @csrf
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="foto_principal" id="principal{{ $i }}" onchange="this.form.submit()" {{ $fotos[$i]['ruta'] == Auth::user()->image ? 'checked' : '' }}>
+                                <input class="form-check-input" type="radio" name="foto_principal" id="principal{{ $i }}" onchange="this.form.submit()" {{ $fotos[$i]['ruta'] == Auth::user()->imatge ? 'checked' : '' }}>
                                 <label class="form-check-label text-white bg-info px-1 rounded" for="principal{{ $i }}">
                                     AVATAR
                                 </label>
