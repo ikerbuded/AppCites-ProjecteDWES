@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Preferencia extends Model
 {
+
+    protected $table = 'preferencies';
+
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('titol', 'Fotos del perfil LoveConnect')
+
 @section('contingut')
 <div class="container my-4">
     <h3>Les meves fotos de perfil</h3>
@@ -32,7 +34,7 @@
                             <label for="foto{{ $i }}" class="etiqueta-pujar text-center w-100 h-100 d-flex justify-content-center align-items-center cursor-pointer">
                                 <span class="display-4 text-secondary">+</span>
                             </label>
-                            <input type="file" name="image" id="foto{{ $i }}" class="d-none" accept="image/*" onchange="this.form.submit()">
+                            <input type="file" name="image" id="foto{{ $i }}" class="d-none" onchange="this.form.submit()">
                         </form>
                     @endif
                 </div>

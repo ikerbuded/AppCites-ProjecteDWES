@@ -16,7 +16,7 @@ class MissatgeController extends Controller
         show($id) – Mostrar detall del missatge rebut
     */
 
-    public function index(string $id)
+    public function index()
     {
 
         return view('missatges.index');

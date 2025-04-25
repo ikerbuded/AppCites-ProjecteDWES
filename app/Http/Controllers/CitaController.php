@@ -18,7 +18,7 @@ class CitaController extends Controller
         updateStatus($id) – Confirmar o rebutjar una sol·licitud
     */
 
-    public function index(string $id)
+    public function index()
     {
 
         return view('cites.index');

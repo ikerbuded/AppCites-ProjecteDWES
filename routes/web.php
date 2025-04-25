@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CitaController;
 use App\Http\Controllers\FotoController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MissatgeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsuariController;
@@ -11,9 +12,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+/*
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+*/
+
+Route::get('/dashboard', HomeController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/perfil', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -33,9 +38,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/foto/{id}/principal', [FotoController::class, 'assignarAvatar'])->name('user.assignaravatar');
 
 
-    Route::post('/missatges', [MissatgeController::class, 'index'])->name('missatges.index');
-    Route::post('/cites', [CitaController::class, 'index'])->name('cites.index');
-    Route::post('/buscarparella', [UsuariController::class, 'index'])->name('buscarparella.index');
+    Route::get('/missatges', [MissatgeController::class, 'index'])->name('missatges.index');
+    Route::get('/cites', [CitaController::class, 'index'])->name('cites.index');
+    Route::get('/buscarparella', [UsuariController::class, 'index'])->name('buscarparella.index');
 });
 
 require __DIR__ . '/auth.php';

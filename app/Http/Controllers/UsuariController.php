@@ -16,9 +16,9 @@ class UsuariController extends Controller
         update(Request $request) – Actualitzar les dades de l’usuari
     */
 
-    public function index(string $id)
+    public function index()
     {
 
-        return view('usuaris.index');
+        return view('buscarparella.index');
     }
 }

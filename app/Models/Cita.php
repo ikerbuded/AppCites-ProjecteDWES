@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cita extends Model
 {
+
+    protected $table = 'cites';
+
     public function sol·licitant()
     {
         return $this->belongsTo(User::class, 'user_solicitant_id');
