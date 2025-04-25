@@ -6,6 +6,7 @@ use App\Models\Foto;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class FotoController extends Controller
 {
@@ -36,7 +37,7 @@ class FotoController extends Controller
     public function destroy(String $id)
     {
         $foto = Foto::findOrFail($id);
-        Storage::disk('public')->delete($foto->ruta);
+        Storage::disk('public')->delete("storage/" . $foto->ruta);
         $foto->delete();
         return redirect()->route('user.modificarfotos');
     }

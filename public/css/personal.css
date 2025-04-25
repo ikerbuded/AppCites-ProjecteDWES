@@ -17,7 +17,7 @@ header .navbar-nav .nav-link:hover {
 }
 
 #welcome {
-    background: url('/img/fondo.jpg') repeat;
+    background: url('/img/fondo.webp') repeat;
     background-size: auto;
     height: 100vh;
     display: flex;

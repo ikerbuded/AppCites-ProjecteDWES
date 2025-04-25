@@ -33,12 +33,30 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'birthdate' => ['required', 'date'],
+            'gender' => ['required', 'string'],
+            'hair_color' => ['required', 'string'],
+            'eye_color' => ['required', 'string'],
         ]);
+
+        $imagePath = "";
+        if ($request->gender == 'home') {
+            $imagePath = 'usuarisImatges/defaultHombre.webp';
+        } elseif ($request->gender == 'dona') {
+            $imagePath = 'usuarisImatges/defaultMujer.webp';
+        } else {
+            $imagePath = 'usuarisImatges/default.webp';
+        }
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'data_naixement' => $request->birthdate,
+            'sexe' => $request->gender,
+            'color_cabell' => $request->hair_color,
+            'color_ulls' => $request->eye_color,
+            'imatge' => $imagePath
         ]);
 
         event(new Registered($user));
