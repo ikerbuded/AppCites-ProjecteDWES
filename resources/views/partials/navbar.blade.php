@@ -30,16 +30,19 @@
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <img src="{{'storage/' . Auth::user()->imatge}}" alt="avatar" style="width: 1.5em"> {{ Auth::user()->name }}
+                        <img class="img-fluid rounded-circle" src="{{ asset('storage/' . Auth::user()->imatge) }}" alt="avatar" style="width: 1.5em"> {{ Auth::user()->name }}
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('usuari.perfil', ['name' => str_replace(' ', '_', Auth::user()->name)]) }}">
+                            {{ __('Perfil') }}
+                        </a>
                         <a class="dropdown-item" href="{{ route('profile.edit') }}">
-                            {{ __('Profile') }}
+                            {{ __('Configuració') }}
                         </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            {{ __('Log Out') }}
+                            {{ __('Sortir') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

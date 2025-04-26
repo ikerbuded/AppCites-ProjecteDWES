@@ -4,6 +4,7 @@ use App\Http\Controllers\CitaController;
 use App\Http\Controllers\FotoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MissatgeController;
+use App\Http\Controllers\PrefereciaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsuariController;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,7 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard', HomeController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/perfil', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/perfil/configuracio', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/perfil', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/perfil', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
@@ -41,6 +42,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/missatges', [MissatgeController::class, 'index'])->name('missatges.index');
     Route::get('/cites', [CitaController::class, 'index'])->name('cites.index');
     Route::get('/buscarparella', [UsuariController::class, 'index'])->name('buscarparella.index');
+    Route::get('/perfil/{name}', [UsuariController::class, 'show'])->name('usuari.perfil');
+    Route::get('/perfil/editar', [UsuariController::class, 'edit'])->name('usuari.editar');
+    Route::get('/perfil/preferencies', PrefereciaController::class)->name('preferencies');
 });
 
 require __DIR__ . '/auth.php';

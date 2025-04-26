@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsuariController extends Controller
 {
@@ -18,7 +20,27 @@ class UsuariController extends Controller
 
     public function index()
     {
-
         return view('buscarparella.index');
+    }
+
+    public function show($name)
+    {
+        $name = str_replace('_', ' ', $name); // Canviem els _ per espais per buscar
+        $user = User::where('name', $name)->firstOrFail();
+        $fotos = $user->fotos()->get();
+
+        $isOwnProfile = false;
+
+        if (Auth::check()) {
+            if (Auth::user()->id == $user->id) {
+                $isOwnProfile = true;
+            }
+        }
+
+        return view('usuari.perfil', [
+            'user' => $user,
+            'fotos' => $fotos,
+            'isOwnProfile' => $isOwnProfile
+        ]);
     }
 }

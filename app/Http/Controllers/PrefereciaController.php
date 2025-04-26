@@ -2,15 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Preferencia;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PrefereciaController extends Controller
 {
-    /*
-        edit() – Mostrar formulari per editar preferències.
 
-        update(Request $request) – Guardar els canvis.
+    public function __invoke(Request $request)
+    {
+        $user = User::findOrFail(Auth::user()->id);
+        $preferencia = Preferencia::where('user_id', $user->id)->first();
 
-        store(Request $request) – Crear preferències quan es registra l’usuari
-    */
+        if ($preferencia) {
+            // Actualitzem si ja existeixen
+            $preferencia->edat = $request->input('edat');
+            $preferencia->color_cabell = $request->input('color_cabell');
+            $preferencia->color_ulls = $request->input('color_ulls');
+            $preferencia->save();
+        } else {
+            // Creem si no existeixen
+            $preferencia = new Preferencia();
+            $preferencia->user_id = $user->id;
+            $preferencia->edat = $request->input('edat');
+            $preferencia->color_cabell = $request->input('color_cabell');
+            $preferencia->color_ulls = $request->input('color_ulls');
+            $preferencia->save();
+        }
+
+        return redirect()->route('usuari.perfil');
+    }
 }

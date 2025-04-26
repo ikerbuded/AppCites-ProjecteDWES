@@ -11,7 +11,7 @@
                 ['icon' => 'search-heart', 'title' => 'Buscar parella', 'text' => 'Troba la teva mitja taronja.', 'btn' => 'Comença', 'color' => 'primary', 'ruta' => 'buscarparella.index'],
                 ['icon' => 'chat-dots', 'title' => 'Missatges', 'text' => 'Llegeix i respon els teus missatges.', 'btn' => 'Missatges', 'color' => 'secondary', 'ruta' => 'missatges.index'],
                 ['icon' => 'calendar-heart', 'title' => 'Cites', 'text' => 'Consulta les teves cites.', 'btn' => 'Les meves cites', 'color' => 'danger', 'ruta' => 'cites.index'],
-                ['icon' => 'person-circle', 'title' => 'Perfil', 'text' => 'Actualitza les teves dades personals.', 'btn' => 'El meu perfil', 'color' => 'info', 'ruta' => 'cites.index'],
+                ['icon' => 'person-circle', 'title' => 'Perfil', 'text' => 'Actualitza les teves dades personals.', 'btn' => 'El meu perfil', 'color' => 'info', 'ruta' => 'usuari.perfil'],
             ];
         @endphp
 
@@ -23,7 +23,7 @@
                     </div>
                     <h4 class="card-title">{{ $card['title'] }}</h4>
                     <p class="card-text">{{ $card['text'] }}</p>
-                    <a href={{ route($card['ruta']) }} class="btn btn-outline-{{ $card['color'] }}">{{ $card['btn'] }}</a>
+                    <a href="{{ route($card['ruta'], ['name' => str_replace(' ', '_', Auth::user()->name)]) }}" class="btn btn-outline-{{ $card['color'] }}">{{ $card['btn'] }}</a>
                 </div>
             </div>
         @endforeach
