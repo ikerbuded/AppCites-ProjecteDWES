@@ -38,9 +38,14 @@ Route::middleware('auth')->group(function () {
     // Assignar una foto com a principal (avatar)
     Route::post('/foto/{id}/principal', [FotoController::class, 'assignarAvatar'])->name('user.assignaravatar');
 
-
     Route::get('/missatges', [MissatgeController::class, 'index'])->name('missatges.index');
+    Route::get('/missatges/crear/{receiverId}', [MissatgeController::class, 'create'])->name('missatges.create');
+    Route::post('/missatges', [MissatgeController::class, 'store'])->name('missatges.store');
+    Route::get('/missatges/{id}', [MissatgeController::class, 'show'])->name('missatges.show');
+
     Route::get('/cites', [CitaController::class, 'index'])->name('cites.index');
+    Route::post('/cites/solicitar/{receiverId}', [CitaController::class, 'solicitar'])->name('cites.solicitar');
+
     Route::get('/buscarparella', [UsuariController::class, 'index'])->name('buscarparella.index');
     Route::get('/perfil/{name}', [UsuariController::class, 'show'])->name('usuari.perfil');
     Route::get('/perfil/editar', [UsuariController::class, 'edit'])->name('usuari.editar');

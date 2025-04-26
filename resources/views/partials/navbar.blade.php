@@ -15,7 +15,7 @@
                     <a class="nav-link" href="{{ route('dashboard') }}">Inici</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('buscarparella.index') }}">Busca</a>
+                    <a class="nav-link" href="{{ route('buscarparella.index') }}">Buscar Parella</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('missatges.index') }}">Missatges</a>
