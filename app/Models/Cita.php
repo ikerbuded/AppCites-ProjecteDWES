@@ -9,12 +9,18 @@ class Cita extends Model
 
     protected $table = 'cites';
 
-    public function sol·licitant()
+    protected $fillable = [
+        'user_solicitant_id',
+        'user_solicitat_id',
+        'estat',
+    ];
+
+    public function remitent()
     {
         return $this->belongsTo(User::class, 'user_solicitant_id');
     }
 
-    public function sol·licitat()
+    public function destinatari()
     {
         return $this->belongsTo(User::class, 'user_solicitat_id');
     }

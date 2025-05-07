@@ -44,7 +44,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/missatges/{id}', [MissatgeController::class, 'show'])->name('missatges.show');
 
     Route::get('/cites', [CitaController::class, 'index'])->name('cites.index');
+    Route::get('/cites/{id}', [CitaController::class, 'show'])->name('cites.show');
     Route::post('/cites/solicitar/{receiverId}', [CitaController::class, 'solicitar'])->name('cites.solicitar');
+    Route::post('/cites/{id}/{resposta}', [CitaController::class, 'resposta'])->name('cites.resposta');
+
 
     Route::get('/buscarparella', [UsuariController::class, 'index'])->name('buscarparella.index');
     Route::get('/perfil/{name}', [UsuariController::class, 'show'])->name('usuari.perfil');

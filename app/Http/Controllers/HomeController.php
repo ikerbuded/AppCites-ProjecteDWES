@@ -7,7 +7,7 @@ use App\Models\User;
 
 class HomeController extends Controller
 {
-    // __invoke() – Carrega la vista principal amb les seccions de buscar parella, missatges i cites
+    // __invoke() – Carrega la vista principal amb les seccions de buscar parella, missatges ,cites i perfil
 
     public function __invoke()
     {

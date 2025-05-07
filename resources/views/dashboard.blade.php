@@ -33,7 +33,7 @@
         <div class="card p-3">
             <h5>Últim missatge rebut</h5>
             @if($ultimMissatgeRebut)
-                <p class="card-text">{{ $ultimMissatgeRebut->assumpte }}</p>
+                <p class="card-text">{{ $ultimMissatgeRebut->remitent->name }}</p>
             @else
                 <p class="card-text">Encara no has rebut cap missatge.</p>
             @endif
@@ -41,7 +41,7 @@
         <div class="card p-3">
             <h5>Últim missatge enviat</h5>
             @if($ultimMissatgeEnviat)
-                <p class="card-text">{{ $ultimMissatgeEnviat->assumpte }}</p>
+                <p class="card-text">{{ $ultimMissatgeEnviat->destinatari->name }}</p>
             @else
                 <p class="card-text">Encara no has enviat cap missatge.</p>
             @endif
@@ -49,7 +49,7 @@
         <div class="card p-3">
             <h5>Última cita rebuda</h5>
             @if($ultimaCitaRebuda)
-                <p class="card-text">{{ $ultimaCitaRebuda->detalls }}</p>
+                <p class="card-text">{{ $ultimaCitaRebuda->remitent->name }}</p>
             @else
                 <p class="card-text">Encara no tens cap cita rebuda.</p>
             @endif
@@ -57,7 +57,7 @@
         <div class="card p-3">
             <h5>Última cita enviada</h5>
             @if($ultimaCitaEnviada)
-                <p class="card-text">{{ $ultimaCitaEnviada->detalls }}</p>
+                <p class="card-text">{{ $ultimaCitaEnviada->destinatari->name }}</p>
             @else
                 <p class="card-text">Encara no has enviat cap cita.</p>
             @endif
