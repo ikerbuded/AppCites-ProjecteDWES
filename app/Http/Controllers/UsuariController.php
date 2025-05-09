@@ -9,19 +9,12 @@ use Illuminate\Support\Facades\Auth;
 class UsuariController extends Controller
 {
     /*
-        index() – Llistar tots els usuaris (per la secció de buscar parella).
-
         show($id) – Mostrar la vista detall d’un usuari.
 
         edit() – Formulari per editar dades personals.
 
         update(Request $request) – Actualitzar les dades de l’usuari
     */
-
-    public function index()
-    {
-        return view('buscarparella.index');
-    }
 
     public function show($name)
     {
@@ -31,10 +24,8 @@ class UsuariController extends Controller
 
         $isOwnProfile = false;
 
-        if (Auth::check()) {
-            if (Auth::user()->id == $user->id) {
-                $isOwnProfile = true;
-            }
+        if (Auth::user()->id == $user->id) {
+            $isOwnProfile = true;
         }
 
         return view('usuari.perfil', [

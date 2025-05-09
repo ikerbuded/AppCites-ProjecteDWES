@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BuscarParellaController;
 use App\Http\Controllers\CitaController;
 use App\Http\Controllers\FotoController;
 use App\Http\Controllers\HomeController;
@@ -28,13 +29,10 @@ Route::middleware('auth')->group(function () {
 
     // Mostrar vista de gestió de fotos
     Route::get('/fotos', [FotoController::class, 'show'])->name('user.modificarfotos');
-
     // Pujar una nova foto (una en una)
     Route::post('/foto', [FotoController::class, 'store'])->name('user.guardarfoto');
-
     // Eliminar una foto
     Route::delete('/foto/{id}', [FotoController::class, 'destroy'])->name('user.eliminarfoto');
-
     // Assignar una foto com a principal (avatar)
     Route::post('/foto/{id}/principal', [FotoController::class, 'assignarAvatar'])->name('user.assignaravatar');
 
@@ -49,7 +47,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/cites/{id}/{resposta}', [CitaController::class, 'resposta'])->name('cites.resposta');
 
 
-    Route::get('/buscarparella', [UsuariController::class, 'index'])->name('buscarparella.index');
+    Route::get('/buscarparella', [BuscarParellaController::class, 'index'])->name('buscarparella.index');
+    Route::get('/buscarparella/{id}/like', [BuscarParellaController::class, 'likeUser'])->name('buscarparella.like');
+    Route::get('/buscarparella/{id}/dislike', [BuscarParellaController::class, 'dislikeUser'])->name('buscarparella.dislike');
+    Route::get('/buscarparella/unlike/{id}', [BuscarParellaController::class, 'unlike'])->name('buscarparella.unlike');
+    Route::get('/buscarparella/undislike/{id}', [BuscarParellaController::class, 'undislike'])->name('buscarparella.undislike');
+
+
     Route::get('/perfil/{name}', [UsuariController::class, 'show'])->name('usuari.perfil');
     Route::get('/perfil/editar', [UsuariController::class, 'edit'])->name('usuari.editar');
     Route::get('/perfil/preferencies', PrefereciaController::class)->name('preferencies');

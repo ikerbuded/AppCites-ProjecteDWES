@@ -63,6 +63,17 @@ class User extends Authenticatable
         return $this->hasOne(Foto::class)->where('principal', true);
     }
 
+    public function interaccionsFetes()
+    {
+        return $this->hasMany(Interaccio::class, 'usuari_id');
+    }
+
+    public function interaccionsRebudes()
+    {
+        return $this->hasMany(Interaccio::class, 'interactuat_id');
+    }
+
+
     /**
      * The attributes that should be hidden for serialization.
      *
