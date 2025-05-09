@@ -17,20 +17,22 @@ class PrefereciaController extends Controller
 
         if ($preferencia) {
             // Actualitzem si ja existeixen
-            $preferencia->edat = $request->input('edat');
-            $preferencia->color_cabell = $request->input('color_cabell');
-            $preferencia->color_ulls = $request->input('color_ulls');
+            $preferencia->edat = $request->edat;
+            $preferencia->sexe = $request->sexe;
+            $preferencia->color_cabell = $request->color_cabell;
+            $preferencia->color_ulls = $request->color_ulls;
             $preferencia->save();
         } else {
             // Creem si no existeixen
             $preferencia = new Preferencia();
             $preferencia->user_id = $user->id;
-            $preferencia->edat = $request->input('edat');
-            $preferencia->color_cabell = $request->input('color_cabell');
-            $preferencia->color_ulls = $request->input('color_ulls');
+            $preferencia->edat = $request->edat;
+            $preferencia->sexe = $request->sexe;
+            $preferencia->color_cabell = $request->color_cabell;
+            $preferencia->color_ulls = $request->color_ulls;
             $preferencia->save();
         }
 
-        return redirect()->route('usuari.perfil');
+        return redirect()->route('usuari.perfil', ['name' => str_replace(' ', '_', Auth::user()->name)]);
     }
 }

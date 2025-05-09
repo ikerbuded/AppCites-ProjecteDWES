@@ -56,7 +56,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/perfil/{name}', [UsuariController::class, 'show'])->name('usuari.perfil');
     Route::get('/perfil/editar', [UsuariController::class, 'edit'])->name('usuari.editar');
-    Route::get('/perfil/preferencies', PrefereciaController::class)->name('preferencies');
+    Route::post('/perfil/preferencies', PrefereciaController::class)->name('preferencies');
 });
 
 require __DIR__ . '/auth.php';

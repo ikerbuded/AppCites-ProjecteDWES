@@ -63,35 +63,60 @@
                 <form action="{{ route('preferencies') }}" method="POST">
                     @csrf
                     <div class="row mb-3">
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-2">
+                            <label for="sexe" class="form-label">Sexe preferit</label>
+                            <select name="sexe" id="sexe" class="form-control">
+                                <option value="">Escollir...</option>
+                                <option value="home" @if(old('sexe', $user->preferencia?->sexe) == 'home') selected @endif>Home</option>
+                                <option value="dona" @if(old('sexe', $user->preferencia?->sexe) == 'dona') selected @endif>Dona</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 mt-2">
                             <label for="edat" class="form-label">Edat preferida</label>
-                            <input type="number" name="edat" id="edat" class="form-control" value="{{ old('edat', $user->preference?->edat) }}">
+                            <input type="number" name="edat" id="edat" class="form-control" value="{{ old('edat', $user->preferencia?->edat) }}">
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-2">
                             <label for="color_cabell" class="form-label">Color de cabell preferit</label>
-                            <input type="text" name="color_cabell" id="color_cabell" class="form-control" value="{{ old('color_cabell', $user->preference?->color_cabell) }}">
+                            <select name="color_cabell" id="color_cabell" class="form-control">
+                                <option value="">Escollir...</option>
+                                <option value="negre" @if(old('color_cabell', $user->preferencia?->color_cabell) == 'negre') selected @endif>Negre</option>
+                                <option value="castany" @if(old('color_cabell', $user->preferencia?->color_cabell) == 'castany') selected @endif>Castany</option>
+                                <option value="ros" @if(old('color_cabell', $user->preferencia?->color_cabell) == 'ros') selected @endif>Ros</option>
+                                <option value="roig" @if(old('color_cabell', $user->preferencia?->color_cabell) == 'roig') selected @endif>Roig</option>
+                                <option value="gris" @if(old('color_cabell', $user->preferencia?->color_cabell) == 'gris') selected @endif>Gris</option>
+                                <option value="altre" @if(old('color_cabell', $user->preferencia?->color_cabell) == 'altre') selected @endif>Altres</option>
+                            </select>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-2">
                             <label for="color_ulls" class="form-label">Color d'ulls preferit</label>
-                            <input type="text" name="color_ulls" id="color_ulls" class="form-control" value="{{ old('color_ulls', $user->preference?->color_ulls) }}">
+                            <select name="color_ulls" id="color_ulls" class="form-control">
+                                <option value="">Escollir...</option>
+                                <option value="marró" @if(old('color_ulls', $user->preferencia?->color_ulls) == 'marró') selected @endif>Marró</option>
+                                <option value="negre" @if(old('color_ulls', $user->preferencia?->color_ulls) == 'negre') selected @endif>Negre</option>
+                                <option value="blau" @if(old('color_ulls', $user->preferencia?->color_ulls) == 'blau') selected @endif>Blau</option>
+                                <option value="verd" @if(old('color_ulls', $user->preferencia?->color_ulls) == 'verd') selected @endif>Verd</option>
+                                <option value="gris" @if(old('color_ulls', $user->preferencia?->color_ulls) == 'gris') selected @endif>Gris</option>
+                                <option value="altre" @if(old('color_ulls', $user->preferencia?->color_ulls) == 'altre') selected @endif>Altres</option>
+                            </select>
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-success">Desar preferències</button>
                 </form>
-
+                
             @else
                 <div class="row mb-3">
                     <div class="col-md-4">
-                        <p><strong>Edat preferida:</strong> {{ $user->preference?->edat ?? 'No especificada' }}</p>
+                        <p><strong>Edat preferida:</strong> {{ $user->preferencia?->edat ?? 'No especificada' }}</p>
                     </div>
                     <div class="col-md-4">
-                        <p><strong>Color de cabell preferit:</strong> {{ $user->preference?->color_cabell ?? 'No especificat' }}</p>
+                        <p><strong>Color de cabell preferit:</strong> {{ $user->preferencia?->color_cabell ?? 'No especificat' }}</p>
                     </div>
                     <div class="col-md-4">
-                        <p><strong>Color d'ulls preferit:</strong> {{ $user->preference?->color_ulls ?? 'No especificat' }}</p>
+                        <p><strong>Color d'ulls preferit:</strong> {{ $user->preferencia?->color_ulls ?? 'No especificat' }}</p>
                     </div>
                 </div>
             @endif
