@@ -51,11 +51,10 @@ class BuscarParellaController extends Controller
     {
         $usuari = Auth::user();
 
-        Interaccio::create([
-            'usuari_id' => $usuari->id,
-            'interactuat_id' => $id,
-            'tipus' => 'like',
-        ]);
+        Interaccio::updateOrCreate(
+            ['usuari_id' => $usuari->id, 'interactuat_id' => $id],
+            ['tipus' => 'like']
+        );
 
         return redirect()->route('buscarparella.index');
     }
@@ -64,11 +63,10 @@ class BuscarParellaController extends Controller
     {
         $usuari = Auth::user();
 
-        Interaccio::create([
-            'usuari_id' => $usuari->id,
-            'interactuat_id' => $id,
-            'tipus' => 'dislike',
-        ]);
+        Interaccio::updateOrCreate(
+            ['usuari_id' => $usuari->id, 'interactuat_id' => $id],
+            ['tipus' => 'dislike']
+        );
 
         return redirect()->route('buscarparella.index');
     }

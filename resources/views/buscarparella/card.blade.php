@@ -10,7 +10,7 @@
             <div>
                 <h6 class="card-title mb-1">{{ $user->name }}</h6>
                 <p class="small text-muted">
-                    {{ $user->edat }} anys · {{ $user->sexe }}<br>
+                    {{ \Carbon\Carbon::parse($user->data_naixement)->age }} anys · {{ $user->sexe }}<br>
                     Ulls: {{ $user->color_ulls }} · Cabells: {{ $user->color_cabell }}
                 </p>
             </div>
