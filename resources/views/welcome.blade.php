@@ -13,18 +13,19 @@
         <p>Troba persones amb qui connectar, comparteix emocions i viu noves experiències ❤️</p>
         <form action="{{ route('login') }}" method="POST">
             @csrf
-            <input type="email" name="email" class="form-control mb-3" value="{{ old('email') }}" placeholder="Correu electrònic" required>
             @error('email')
                 <span class="invalid-feedback d-block" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            <input type="password" name="password" class="form-control mb-3" placeholder="Contrasenya" required>
             @error('password')
                 <span class="invalid-feedback d-block" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+
+            <input type="email" name="email" class="form-control mb-3" value="{{ old('email') }}" placeholder="Correu electrònic" required>
+            <input type="password" name="password" class="form-control mb-3" placeholder="Contrasenya" required>
             <button type="submit" class="btn btn-primary w-100">Inicia Sessió</button>
         </form>
         <p class="mt-3"><a href="{{ route('register') }}" class="text-light">Encara no tens compte? Registra't</a></p>

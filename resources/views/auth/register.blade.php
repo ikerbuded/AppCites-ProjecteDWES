@@ -29,8 +29,23 @@
             <!-- PAS 1 -->
             <div id="pas1">
                 <input type="text" name="name" class="form-control mb-3" placeholder="Nom complet" required>
+                @error('name')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 <input type="email" name="email" class="form-control mb-3" placeholder="Correu electrònic" required>
+                @error('email')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 <input type="password" name="password" class="form-control mb-3" placeholder="Contrasenya" required>
+                @error('password')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 <input type="password" name="password_confirmation" class="form-control mb-3" placeholder="Repeteix la contrasenya" required>
                 
                 <button type="button" class="btn btn-primary w-100" onclick="mostrarSegonPas()">Següent</button>
@@ -39,12 +54,22 @@
             <!-- PAS 2 -->
             <div id="pas2" class="d-none">
                 <input type="date" name="birthdate" class="form-control mb-3" required>
+                @error('birthdate')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
                 <select name="gender" class="form-control mb-3" required>
                     <option value="">Sexe</option>
                     <option value="home">Home</option>
                     <option value="dona">Dona</option>
                 </select>
+                @error('gender')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
                 <select name="hair_color" class="form-control mb-3">
                     <option value="">Color de cabell</option>
@@ -55,6 +80,11 @@
                     <option value="gris">Gris</option>
                     <option value="altre">Altres</option>
                 </select>
+                @error('hair_color')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
                 <select name="eye_color" class="form-control mb-3">
                     <option value="">Color d’ulls</option>
@@ -65,6 +95,11 @@
                     <option value="gris">Gris</option>
                     <option value="altre">Altres</option>
                 </select>
+                @error('eye_color')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
                 <div class="d-flex gap-2">
                     <button type="button" class="btn btn-secondary w-50" onclick="tornarPrimerPas()">Tornar</button>
