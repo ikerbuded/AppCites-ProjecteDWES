@@ -1,4 +1,4 @@
-ç# 💘 AppCites (LoveConnect) – Aplicació de Cites en Laravel
+# 💘 AppCites (LoveConnect) – Aplicació de Cites en Laravel
 
 **AppCites**, també coneguda com a **LoveConnect**, és una aplicació web de cites desenvolupada com a part del projecte **ProjecteDWES** (Desenvolupament Web en Entorn Servidor).  
 El seu objectiu principal és proporcionar una plataforma on els usuaris es puguin registrar, configurar les seves preferències i connectar-se amb altres persones per trobar parella, intercanviar missatges i gestionar sol·licituds de cites.
