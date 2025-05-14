@@ -57,7 +57,8 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/perfil/{name}', [UsuariController::class, 'show'])->name('usuari.perfil');
-    Route::get('/perfil/editar', [UsuariController::class, 'edit'])->name('usuari.editar');
+    Route::get('/usuari/{name}/editar', [UsuariController::class, 'edit'])->name('usuari.editar');
+    Route::put('/perfil/{id}', [UsuariController::class, 'update'])->name('usuari.update');
     Route::post('/perfil/preferencies', PrefereciaController::class)->name('preferencies');
 });
 

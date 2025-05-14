@@ -15,13 +15,13 @@
             <div class="mt-4 text-start">
                 <h4>Dades personals</h4>
                 <p><strong>Nom:</strong> {{ $user->name }}</p>
-                <p><strong>Sexe:</strong> {{ $user->sexe }}</p>
-                <p><strong>Edat:</strong> {{ \Carbon\Carbon::parse($user->data_naixement)->age }} anys</p>
-                <p><strong>Color de cabell:</strong> {{ $user->color_cabell }}</p>
-                <p><strong>Color d'ulls:</strong> {{ $user->color_ulls }}</p>
+                <p><strong>Sexe:</strong> <span class="text-capitalize"> {{ $user->sexe }}</span></p>
+                <p><strong>Edat:</strong> {{ \Carbon\Carbon::parse($user->data_naixement)->age }} Anys</p>
+                <p><strong>Color de cabell:</strong> <span class="text-capitalize">{{ $user->color_cabell }}</span></p>
+                <p><strong>Color d'ulls:</strong> <span class="text-capitalize">{{ $user->color_ulls }}</span></p>
 
                 @if ($isOwnProfile)
-                    <a href="{{ route('usuari.editar') }}" class="btn btn-outline-primary mt-2">
+                    <a href="{{ route('usuari.editar', ['name' => str_replace(' ', '_', Auth::user()->name)]) }}" class="btn btn-outline-primary mt-2">
                         <i class="bi bi-pencil-square me-1"></i>Editar dades
                     </a>
                 @else
@@ -110,13 +110,13 @@
             @else
                 <div class="row mb-3">
                     <div class="col-md-4">
-                        <p><strong>Edat preferida:</strong> {{ $user->preferencia?->edat ?? 'No especificada' }}</p>
+                        <p><strong>Edat preferida:</strong> <span class="text-capitalize">{{ $user->preferencia?->edat ?? 'No especificada' }}</span></p>
                     </div>
                     <div class="col-md-4">
-                        <p><strong>Color de cabell preferit:</strong> {{ $user->preferencia?->color_cabell ?? 'No especificat' }}</p>
+                        <p><strong>Color de cabell preferit:</strong> <span class="text-capitalize">{{ $user->preferencia?->color_cabell ?? 'No especificat' }}</span></p>
                     </div>
                     <div class="col-md-4">
-                        <p><strong>Color d'ulls preferit:</strong> {{ $user->preferencia?->color_ulls ?? 'No especificat' }}</p>
+                        <p><strong>Color d'ulls preferit:</strong> <span class="text-capitalize">{{ $user->preferencia?->color_ulls ?? 'No especificat' }}</span></p>
                     </div>
                 </div>
             @endif

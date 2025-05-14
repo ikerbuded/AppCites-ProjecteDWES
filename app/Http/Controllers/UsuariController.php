@@ -34,4 +34,34 @@ class UsuariController extends Controller
             'isOwnProfile' => $isOwnProfile
         ]);
     }
+
+    public function edit(string $name)
+    {
+        $nomReal = str_replace('_', ' ', $name);
+        $usuari = User::where('name', $nomReal)->firstOrFail();
+        return view('usuari.editar', compact('usuari'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'sexe' => 'required|string',
+            'data_naixement' => 'required|date',
+            'color_cabell' => 'required|string',
+            'color_ulls' => 'required|string',
+        ]);
+
+        $usuari = User::findOrFail($id);
+
+        $usuari->update([
+            'name' => $request->name,
+            'sexe' => $request->sexe,
+            'data_naixement' => $request->data_naixement,
+            'color_cabell' => $request->color_cabell,
+            'color_ulls' => $request->color_ulls,
+        ]);
+
+        return redirect()->route('usuari.perfil', ['name' => str_replace(' ', '_', $usuari->name)]);
+    }
 }

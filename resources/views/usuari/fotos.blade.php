@@ -4,7 +4,10 @@
 
 @section('contingut')
 <div class="container my-4">
-    <h3>Les meves fotos de perfil</h3>
+    <div class="d-flex justify-content-between">
+        <h3>Les meves fotos de perfil</h3> 
+        <a class="btn btn-secondary" href="{{ route('usuari.perfil', ['name' => str_replace(' ', '_', Auth::user()->name)]) }}">Tornar al perfil</a>
+    </div>
 
     <div class="row g-3 mt-3">
         @for ($i = 0; $i < 6; $i++)
