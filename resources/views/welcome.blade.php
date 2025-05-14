@@ -6,6 +6,7 @@
     <title>Benvingut a LoveConnect</title>
     <link rel="stylesheet" href="{{ asset('css/journal-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/personal.css') }}">
+    <link rel="icon" href="{{ asset('img/iconLoveConnect.png') }}">
 </head>
 <body id="welcome">
     <div class="overlay">

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/personal.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>@yield('titol')</title>
+    <link rel="icon" href="{{ asset('img/iconLoveConnect.png') }}">
   </head>
   <body>
     @include('partials.navbar')

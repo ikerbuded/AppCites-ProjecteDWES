@@ -6,6 +6,7 @@
     <title>Registra't a LoveConnect</title>
     <link rel="stylesheet" href="{{ asset('css/journal-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/personal.css') }}">
+    <link rel="icon" href="{{ asset('img/iconLoveConnect.png') }}">
     <script>
         function mostrarSegonPas() {
             document.getElementById('pas1').classList.add('d-none');

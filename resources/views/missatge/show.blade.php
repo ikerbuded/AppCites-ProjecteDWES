@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('titol', 'Missatge LoveConnect')
+
 @section('contingut')
 <main class="container my-5">
     <h2 class="mb-4">{{ $missatge->assumpte }}</h2>

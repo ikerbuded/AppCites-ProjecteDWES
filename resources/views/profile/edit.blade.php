@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('titol', 'Configuració Dades LoveConnect')
+
 @section('contingut')
 <div class="container">
     <div class="row justify-content-center">

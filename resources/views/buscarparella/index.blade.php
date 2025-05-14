@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('titol', 'Buscar Parella LoveConnect')
+
 @section('contingut')
 {{-- Navegació entre seccions --}}
 <ul class="nav nav-tabs mb-4 mt-5" id="parellaTabs" role="tablist">

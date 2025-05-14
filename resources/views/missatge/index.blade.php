@@ -1,5 +1,7 @@
 @extends('layouts.plantilla')
 
+@section('titol', 'Missatges LoveConnect')
+
 @section('contingut')
 <main class="container my-5">
 
